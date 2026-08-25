@@ -1,5 +1,30 @@
 import Logo from "../components/Logo";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["Electrician", "GeneralContractor"],
+
+  name: "Sanjaya Electricals & Civil Contractors",
+
+  url: "https://www.sanjayaelectricals.com",
+
+  telephone: "+918249024718",
+
+  email: "support@sanjayaelectricals.com",
+
+  description:
+    "Electrical and civil contracting services for residential, commercial and industrial projects in Puri, Odisha.",
+
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "House No 7, Lane No 2, Gundicha Vihar",
+    addressLocality: "Puri",
+    addressRegion: "Odisha",
+    postalCode: "752002",
+    addressCountry: "IN",
+  },
+};
+
 const electricalServices = [
   "Electrical Wiring & Installation",
   "LT / HT Panel Installation",
@@ -75,6 +100,13 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
